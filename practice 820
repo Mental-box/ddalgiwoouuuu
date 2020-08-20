@@ -16,8 +16,16 @@ int main()
 
 	while ((c = getchar()) != STOP)
 	{
-		if (isspace(c))
+		if (!isspace(c))		//!false = true
 			n_chars++;
+			
+		if (!isspace(c) && !word_flag){
+			n_words++;
+			word_flag = 1;
+		}
+		
+		if (isspace(c))
+			word_flag = 0;	//false
 
 		if (!isspace(c) && !line_flag)
 		{
